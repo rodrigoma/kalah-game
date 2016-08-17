@@ -58,7 +58,7 @@ public class GameServiceImpl implements GameService {
     }
 
     private boolean validSpot(Spot spot) {
-        return spot.getStones() > 0;
+        return spot.getStones() > ZERO;
     }
 
     private void validateMatch(GameBoard gameBoard) {
