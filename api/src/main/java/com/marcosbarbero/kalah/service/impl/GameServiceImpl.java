@@ -9,7 +9,6 @@ import com.marcosbarbero.kalah.model.entity.enums.PlayerId;
 import com.marcosbarbero.kalah.model.entity.enums.SpotId;
 import com.marcosbarbero.kalah.model.repository.GameRepository;
 import com.marcosbarbero.kalah.service.GameService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +22,6 @@ import static com.marcosbarbero.kalah.utils.GameHelper.*;
  *
  * @author Marcos Barbero
  */
-@Slf4j
 @Service
 public class GameServiceImpl implements GameService {
 
