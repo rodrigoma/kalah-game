@@ -100,10 +100,11 @@ If everything goes ok you must see a message just like the following:
 2016-08-17 21:34:41.300  INFO 7299 --- [           main] com.marcosbarbero.kalah.WebApplication   : Started WebApplication in 3.846 seconds (JVM running for 4.251)
 ```
 
->**Notes**: 1) The web layer will be available on `8080` port.  
+>**Notes**: 
+>1) The web layer will be available on `8080` port.  
 >2) The commands above must be executed in the root of this project and make sure to execute the commands above after the *build*.
 
 Playing the game
 ---
-To play the game just reach the [http://localhost:8080](http://localhost:8080) choose the number of stones to play
+To play the game just reach the address [http://localhost:8080](http://localhost:8080), choose the number of stones to play
  and enjoy it!
