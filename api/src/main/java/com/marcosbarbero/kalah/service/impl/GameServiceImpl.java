@@ -107,7 +107,7 @@ public class GameServiceImpl implements GameService {
             Spot spot = getSpot(player, spotId);
             if (spot.getStones() == LANDED_EMPTY_SPOT) {
                 Player otherPlayer = getOpponentPlayer(playerId, gameBoard);
-                Spot oppositeSpot = getSpot(otherPlayer, spotId);
+                Spot oppositeSpot = getSpot(otherPlayer, getOppositeSpotId(spotId));
                 player.getHouse().setStones(player.getHouse().getStones() + oppositeSpot.getStones() + spot.getStones());
                 oppositeSpot.setStones(ZERO);
                 spot.setStones(ZERO);

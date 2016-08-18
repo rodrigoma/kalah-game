@@ -75,7 +75,6 @@ public class GameBoardControllerTest {
     public void testPostGameBoard() throws Exception {
         int stones = 6;
         StartGameDTO startGameDTO = Given.startGame(stones);
-
         GameBoard gameBoard = Given.gameBoard(stones, UUID.randomUUID().toString());
         given(this.service.create((any(Integer.class)))).willReturn(gameBoard);
 

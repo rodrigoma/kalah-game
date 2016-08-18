@@ -7,8 +7,10 @@ import com.marcosbarbero.kalah.model.entity.Spot;
 import com.marcosbarbero.kalah.model.entity.enums.PlayerId;
 import com.marcosbarbero.kalah.model.entity.enums.SpotId;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Class with helper methods to play the game.
@@ -75,6 +77,23 @@ public class GameHelper {
      */
     public static Spot getSpot(Player player, SpotId spotId) {
         return player.getSpots().get(spotId.ordinal());
+    }
+
+    /**
+     * Get the opposite spotId for the given id.
+     *
+     * @param spotId The SpotId
+     * @return Opposite SpotId
+     */
+    public static SpotId getOppositeSpotId(SpotId spotId) {
+        Map<SpotId, SpotId> map = new HashMap<>();
+        map.put(SpotId.SPOT_1, SpotId.SPOT_6);
+        map.put(SpotId.SPOT_2, SpotId.SPOT_5);
+        map.put(SpotId.SPOT_3, SpotId.SPOT_4);
+        map.put(SpotId.SPOT_4, SpotId.SPOT_3);
+        map.put(SpotId.SPOT_5, SpotId.SPOT_2);
+        map.put(SpotId.SPOT_6, SpotId.SPOT_1);
+        return map.get(spotId);
     }
 
     /**

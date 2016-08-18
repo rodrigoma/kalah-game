@@ -17,7 +17,6 @@ public class GameController {
 
     @GetMapping("/game")
     public ModelAndView start(@RequestParam Integer stones, ModelAndView view) {
-        log.info("Starting a new game with '{}' stones per spot", stones);
         view.addObject("stones", stones);
         return view;
     }

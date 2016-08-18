@@ -1,6 +1,9 @@
 Kalah Game
 ---
-  
+It's an API based implementation of [Kalah Game](https://en.wikipedia.org/wiki/Kalah).
+
+The game
+---
 Each of the two players has six pits in front of him/her. To the right of the six pits, each player
 has a larger pit, his Kalah or house. At the start of the game, six stones are put In each pit.
 The player who begins picks up all the stones in any of their own pits, and sows the stones on to
@@ -85,6 +88,23 @@ If everything goes ok you must see a message just like the following:
 2016-08-17 17:32:07.406  INFO 80518 --- [           main] com.marcosbarbero.kalah.ApiApplication   : Started ApiApplication in 3.879 seconds (JVM running for 4.306)
 ```
 
+>Note: The API will be available on `9090` port.  
 
+After the API is up and running it is time to run the web layer executing the following command:
+```
+$ java -jar web/target/web.jar
+```
+
+If everything goes ok you must see a message just like the following:
+```
+2016-08-17 21:34:41.300  INFO 7299 --- [           main] com.marcosbarbero.kalah.WebApplication   : Started WebApplication in 3.846 seconds (JVM running for 4.251)
+```
+
+>Note: The web layer will be available on `8080` port.
 
 >**Note**: The commands above must be executed in the root of this project and make sure to execute the commands above after the *build*.
+
+Playing the game
+---
+To play the game just reach the [http://localhost:8080](http://localhost:8080) choose the number of stones to play
+ and enjoy it!
