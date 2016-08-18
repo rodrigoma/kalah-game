@@ -61,23 +61,29 @@ public class GameServiceImpl implements GameService {
 
     private void validateMatch(GameBoard gameBoard) {
         Player currentPlayer = getPlayer(gameBoard.getCurrentPlayer(), gameBoard);
-        int count = countStonesInSpots(currentPlayer, false);
-        if (count == ZERO) {
-            Player otherPlayer = getOpponentPlayer(gameBoard.getCurrentPlayer(), gameBoard);
-            int totalInSpots = countStonesInSpots(otherPlayer, true);
-            otherPlayer.getHouse().setStones(otherPlayer.getHouse().getStones() + totalInSpots);
+        int stonesInSpots = countStonesInSpots(currentPlayer, false);
 
-            Integer stones;
-            PlayerId playerId;
-            if (currentPlayer.getHouse().getStones() > otherPlayer.getHouse().getStones()) {
-                playerId = currentPlayer.getId();
-                stones = currentPlayer.getHouse().getStones();
+        Player opponentPlayer = getOpponentPlayer(gameBoard.getCurrentPlayer(), gameBoard);
+        int opponentStones = countStonesInSpots(opponentPlayer, false);
+
+        if (stonesInSpots == ZERO || opponentStones == ZERO) {
+            clearSpots(currentPlayer, opponentPlayer);
+            Player winner;
+            if (currentPlayer.getHouse().getStones() > opponentPlayer.getHouse().getStones()) {
+                winner = currentPlayer;
+            } else if (currentPlayer.getHouse().getStones() < opponentPlayer.getHouse().getStones()) {
+                winner = opponentPlayer;
             } else {
-                playerId = otherPlayer.getId();
-                stones = otherPlayer.getHouse().getStones();
+                throw new GameFinishedException();
             }
+            throw new GameFinishedException(gameBoard.getId(), winner.getId(), winner.getHouse().getStones());
+        }
+    }
 
-            throw new GameFinishedException(gameBoard.getId(), playerId, stones);
+    private void clearSpots(Player... players) {
+        for (Player player : players) {
+            int stones = countStonesInSpots(player, true);
+            player.getHouse().setStones(player.getHouse().getStones() + stones);
         }
     }
 
