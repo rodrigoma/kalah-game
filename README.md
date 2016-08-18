@@ -88,7 +88,7 @@ If everything goes ok you must see a message just like the following:
 2016-08-17 17:32:07.406  INFO 80518 --- [           main] com.marcosbarbero.kalah.ApiApplication   : Started ApiApplication in 3.879 seconds (JVM running for 4.306)
 ```
 
->Note: The API will be available on `9090` port.  
+>**Note**: The API will be available on `9090` port.  
 
 After the API is up and running it is time to run the web layer executing the following command:
 ```
